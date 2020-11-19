@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koholist - Casdastro</title>
+    <title>Koholist - Cadastro</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="icones/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div id="login-container">
-        <h1>Casdastro</h1>
+        <h1>Cadastro</h1>
         <form method="POST">
             <label for="text">Nome</label>
             <input type="text" name="nome" id="nome" placeholder="Digite seu nome" autocomplete="off" maxlength="40">
