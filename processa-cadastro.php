@@ -11,7 +11,7 @@ if(isset($_POST['nome'])){
 
     //verificar se os campos estão preenchidos
     if(!empty($nome) && !empty($email) && !empty($senha)){
-        $u->conectar("koholist","localhost","root","");
+        $u->conectar("koholist","127.0.0.1:3308","root","");
         if($u->msgErro==""){// se estiver certo
             if($senha==$confirmarsenha){
                 if($u->cadastrar($nome,$email,$senha)){

@@ -8,7 +8,6 @@ class usuario
         global $pdo;
         try{
             $pdo = new PDO("mysql:dbname=".$dbnome.";host=".$host,$usuario,$senha);
-            echo "conectou";
         }catch (PDOException $e){
             $msgErro = $e->getMessage();
             throw new PDOException($e);
@@ -31,7 +30,7 @@ class usuario
             $sql = $pdo->prepare("INSERT INTO usuario (nome,email,senha) VALUES (:n, :e, :s)");
             $sql->bindValue(":n",$nome);
             $sql->bindValue(":e",$email);
-            $sql->bindValue(":s",md5($senha));
+            $sql->bindValue(":s",$senha);
             $sql->execute();
             return true;//cadastrado com sucesso
         }
