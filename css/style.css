@@ -1,12 +1,28 @@
 /*SEÇÃO GERAL*/
 
+@font-face{
+    font-family: Zelda;
+    src: url('../fontes/HyliaSerifBeta-Regular.otf')
+}
+
+h1{
+    font-family: Zelda;
+}
+
+body{
+    /*background-color: #000;*/
+    background-image: url(../imagens/zelda-wallpaper.jpg);
+    background-position: 70% 40%;
+    
+}
 * {
     margin: 0;
     border: 0;
     box-sizing: border-box;
-    font-family: Helvetica;
-    color: #323232;
+    font-family: inherit; /*'Bitter', serif inherit*/
+    color: #ffffff;
     border: none;
+    
 }
 
 /*removendo bordinha da textarea*/
@@ -24,7 +40,7 @@ a:hover {
 
 /*login-container*/
 #login-container{
-    background-color:lightgreen;
+    background-color:#404040;
     width: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -59,7 +75,7 @@ input{
 }
 
 input:focus{
-    border-bottom: 2px solid blue;
+    border-bottom: 3px solid #B99658;
 }
 
 #esqueceu-senha{
@@ -75,13 +91,14 @@ input[type="submit"]{
     height: 40px;
     border-radius: 20px;
     color: white;
-    background: blue;
+    background: #2d2d2d;
     cursor: pointer;
 }
 
 input[type="submit"]:hover{
-    background-color: black;
+    background-color:black;
     transition: .5s;
+    color: #B99658;
 }
 
 /*estilizando mensagens*/
