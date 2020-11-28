@@ -43,6 +43,7 @@
         $senha = addslashes($_POST['senha']);
         $confirmarsenha = addslashes($_POST['confirmarsenha']);
         
+        $fotos = array();
         if(isset($_FILES['foto']))
         {
             $nome_foto = $_FILES['foto']['name'][0];
