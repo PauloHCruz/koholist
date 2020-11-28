@@ -16,7 +16,7 @@ class usuario
 
     }
 
-    public function cadastrar($nome,$email,$senha){
+    public function cadastrar($nome,$email,$senha,$fotos=array()){
         global $pdo;
         //verificar se o usuário já está cadastrado (verificando se for retornado o id_usuario)
         $sql = $pdo->prepare("SELECT id_usuario FROM usuario WHERE email=:e");
@@ -32,7 +32,18 @@ class usuario
             $sql->bindValue(":e",$email);
             $sql->bindValue(":s",$senha);
             $sql->execute();
-            return true;//cadastrado com sucesso
+            
+            //inserindo foto
+            $id_usuario= $pdo->lastInsertId();;
+            if(count($fotos)>0)
+            {
+                    $nome_foto = $fotos[0];
+                    $sql = $pdo->prepare("INSERT INTO imagens (nome_imagem,fk_id_usuario) VALUES (:n, :fk)");
+                    $sql->bindValue(":n",$nome_foto);
+                    $sql->bindValue(":fk",$id_usuario);
+                    $sql->execute();
+                    return true;//cadastrado com sucesso
+            }
         }
 
         
