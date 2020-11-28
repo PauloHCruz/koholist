@@ -20,6 +20,8 @@
             <input type="password" name="senha" id="senha" placeholder="Digite sua senha" autocomplete="off">
             <label for="password">Confirmar Senha</label>
             <input type="password" name="confirmarsenha" id="confirmarsenha" placeholder="Digite sua senha novamente" autocomplete="off">
+            <label for="password">Insira sua foto</label>
+            <input type="file" name="foto[]" multipled id="foto">
             <input type="submit" value="Cadastrar">
         </form>
         
@@ -40,13 +42,20 @@
         $email = addslashes($_POST['email']);
         $senha = addslashes($_POST['senha']);
         $confirmarsenha = addslashes($_POST['confirmarsenha']);
+        
+        if(isset($_FILES['foto']))
+        {
+            $nome_foto = $_FILES['foto']['name'][0];
+            move_uploaded_file($_FILES['foto']['tmp_name'][0],'upload-fotos/'.$nome_foto);
+            array_push($fotos,$nome_foto);
+        }
 
         //verificar se os campos estão preenchidos
         if(!empty($nome) && !empty($email) && !empty($senha)){
             $u->conectar("koholist","127.0.0.1:3308","root","");
             if($u->msgErro==""){// se estiver certo
                 if($senha==$confirmarsenha){
-                    if($u->cadastrar($nome,$email,$senha)){
+                    if($u->cadastrar($nome,$email,$senha,$fotos)){
                         ?>
                         <div id="msg_sucesso">
                             Usuario cadastrado com sucesso!
